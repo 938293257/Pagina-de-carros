@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diogo Drive Experience | Frota Premium Angola</title>
+    
+    <!-- SEO Meta -->
+    <meta name="description" content="A maior frota de veículos premium de Angola. Mais de 50 carros de luxo, esportivos e SUVs disponíveis para test drive em Luanda.">
+    <meta name="keywords" content="carros luxo Angola, test drive Luanda, Range Rover, Mercedes, BMW, Audi, Porsche, Ferrari, Lexus, Rolls Royce">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #b91c1c;
+            --primary-glow: rgba(230, 57, 70, 0.4);
+            --dark-bg: #050505;
+            --dark-soft: #0a0a0a;
+            --card-bg: #111111;
+            --text-light: #ffffff;
+            --text-dim: #a0a0a0;
+            --text-darker: #666666;
+            --border: rgba(255,255,255,0.08);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html { 
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-soft) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 30px; 
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { 
+            width: 8px; 
+            height: 8px; 
+        }
+        ::-webkit-scrollbar-track { 
+            background: var(--dark-bg); 
+        }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--primary); 
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb:hover { 
+            background: var(--primary-dark); 
+        }
+
+        /* Header */
+        .main-header {
+            padding: 20px 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .main-header.scrolled { 
+            padding: 15px 0; 
+            background: rgba(5, 5, 5, 0.98);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-wrapper { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { 
+            font-family: 'Syncopate', sans-serif; 
+            font-size: 1.3rem; 
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo span { 
+            color: var(--primary); 
+        }
+
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 40px; 
+            align-items: center; 
+        }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.2px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover { 
+            color: var(--primary); 
+        }
+
+        .btn-cta-nav {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700 !important;
+            box-shadow: 0 5px 15px var(--primary-glow);
+        }
+        
+        .btn-cta-nav:hover::after {
+            width: 0 !important;
+        }
+
+        /* Header Stats */
+        .header-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--text-darker);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content { 
+            max-width: 800px; 
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            display: inline-block;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px var(--primary-glow); }
+            50% { text-shadow: 0 0 40px var(--primary); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--primary-glow);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Filter Section */
+        .filter-section { 
+            padding: 80px 0 40px; 
+            text-align: center; 
+        }
+        
+        .filter-title { 
+            font-family: 'Syncopate', sans-serif; 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+        }
+        
+        .filter-subtitle {
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: #111;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--primary-glow);
+        }
+
+        /* Car Grid */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding-bottom: 80px;
+        }
+
+        .car-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .car-image-box { 
+            height: 250px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .car-image { 
+            width: 100%; 
+            height: 100%; 
+            background-size: cover; 
+            background-position: center; 
+            transition: transform 0.8s ease;
+        }
+        
+        .car-card:hover .car-image { 
+            transform: scale(1.1); 
+        }
+
+        .price-tag {
+            position: absolute;
+            bottom: 15px; 
+            left: 15px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            z-index: 2;
+        }
+
+        .car-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .car-card:hover .car-overlay {
+            opacity: 1;
+        }
+
+        .car-details { 
+            padding: 25px; 
+        }
+        
+        .car-category { 
+            color: var(--primary); 
+            font-size: 0.7rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .car-name { 
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
+            font-weight: 800; 
+            line-height: 1.3;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .spec-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 0.85rem; 
+            color: var(--text-dim); 
+        }
+        
+        .spec-item i { 
+            color: var(--primary); 
+            font-size: 0.9rem; 
+            width: 16px;
+        }
+
+        .btn-book {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-book:hover { 
+            background: var(--primary); 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--primary-glow);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            background: #0d0d0d;
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+            animation: modalFadeIn 0.4s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px; 
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            color: white;
+            width: 40px; 
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-img { 
+            background-size: cover; 
+            background-position: center; 
+            min-height: 500px;
+            position: relative;
+        }
+
+        .modal-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(230,57,70,0.2), transparent);
+        }
+
+        .modal-content { 
+            padding: 50px; 
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .modal-category {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-darker);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .form-input {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px;
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #25D366;
+        }
+
+        .modal-note {
+            font-size: 0.7rem;
+            color: #444;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        .stats-item {
+            text-align: center;
+        }
+
+        .stats-number {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer { 
+            padding: 60px 0; 
+            border-top: 1px solid var(--border); 
+            text-align: center; 
+            background: #050505;
+        }
+        
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: #111;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover { 
+            background: var(--primary); 
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright { 
+            color: var(--text-darker); 
+            font-size: 0.8rem; 
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            z-index: 9999;
+            display: none;
+            animation: slideInRight 0.3s ease-out;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .modal-body { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .modal-img {
+                min-height: 350px;
+            }
+            
+            .nav-links, 
+            .header-stats { 
+                display: none; 
+            }
+            
+            .car-grid { 
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+            
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modal-content {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">DIOGO<span>DRIVE</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="MINHA.html" class="active">Início</a></li>
+                <li><a href="sedan.html">Frota</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="#contactos">Contactos</a></li>
+                <li><a href="https://wa.me/244958480438" class="btn-cta-nav">
+                    <i class="fab fa-whatsapp"></i> Consultor VIP
+                </a></li>
+            </ul>
+            
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalCarros">48</div>
+                    <div class="stat-label">Disponíveis</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Categorias</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <span class="hero-badge animate__animated animate__fadeInDown">
+                <i class="fas fa-crown"></i> Experiência de Elite
+            </span>
+            <h1 class="animate__animated animate__fadeInLeft">
+                Conduza o<br><span>Extraordinário</span>
+            </h1>
+            <p class="animate__animated animate__fadeInUp">
+                Mais do que um test-drive, uma imersão na alta performance. 
+                Descubra a maior frota de veículos premium de Angola.
+            </p>
+            <div class="hero-cta animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <a href="#frota" class="btn-primary">
+                    <i class="fas fa-car"></i> Explorar Frota
+                </a>
+                <a href="#contato" class="btn-outline">
+                    <i class="fas fa-phone-alt"></i> Falar com Consultor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar" data-aos="fade-up">
+            <div class="stats-item">
+                <div class="stats-number">48+</div>
+                <div class="stats-label">Veículos Premium</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number">15+</div>
+                <div class="stats-label">Marcas de Luxo</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number">24/7</div>
+                <div class="stats-label">Suporte VIP</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section class="container" id="frota">
+        <div class="filter-section">
+            <h2 class="filter-title" data-aos="fade-down">FROTA <span style="color: var(--primary);">PREMIUM</span></h2>
+            <p class="filter-subtitle" data-aos="fade-up">Selecione a categoria do veículo dos seus sonhos</p>
+            
+            <div class="filter-tabs" data-aos="fade-up">
+                <button class="tab-btn active" onclick="filtrarCarros('todos', this)">Todos</button>
+                <button class="tab-btn" onclick="filtrarCarros('SUV Performance', this)">SUVs</button>
+                <button class="tab-btn" onclick="filtrarCarros('Supercar', this)">Supercarros</button>
+                <button class="tab-btn" onclick="filtrarCarros('Luxo', this)">Luxo</button>
+                <button class="tab-btn" onclick="filtrarCarros('Esportivo', this)">Esportivos</button>
+                <button class="tab-btn" onclick="filtrarCarros('Executivo', this)">Executivos</button>
+            </div>
+        </div>
+
+        <!-- Car Grid -->
+        <div class="car-grid" id="carGrid"></div>
+    </section>
+
+    <!-- Modal de Agendamento -->
+    <div class="modal-overlay" id="modalBooking">
+        <div class="modal-body">
+            <button class="modal-close" onclick="fecharModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-img" id="modalHeroImg"></div>
+            <div class="modal-content">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-category" id="modalCategory"></p>
+                <p class="modal-price" id="modalPrice"></p>
+                
+                <div class="form-group">
+                    <label>Seu Nome Completo</label>
+                    <input type="text" id="userName" class="form-input" placeholder="Ex: João Manuel" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Telefone para Contacto</label>
+                    <input type="tel" id="userPhone" class="form-input" placeholder="9XXXXXXXX" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Data Preferencial</label>
+                    <input type="date" id="reserveDate" class="form-input" required>
+                </div>
+                
+                <button class="btn-book btn-whatsapp" onclick="enviarWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Confirmar no WhatsApp
+                </button>
+                
+                <p class="modal-note">
+                    <i class="fas fa-info-circle"></i> 
+                    Você será redirecionado para o WhatsApp do consultor
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner"></div>
+
+    <!-- Footer -->
+    <footer id="contactos">
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="MINHA.html">Início</a>
+                <a href="sedan.html">Frota</a>
+                <a href="sobre.html">Sobre Nós</a>
+                
+                
+            </div>
+            
+            <p class="copyright">
+                &copy; 2026 Diogo Drive Experience Angola. Todos os direitos reservados.<br>
+                Luanda, Popula - Angola
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // ===== TODOS OS CARROS DA FROTA (48 veículos) =====
+        const frota = [
+            // Supercarros de Luxo
+            { id: 17, marca: 'Lexus', modelo: 'LX 600+570', cat: 'SUV Performance', motor: 'V8 Biturbo', cv: '600cv', zero_cem: '5.2s', img: '1771202123_6992664b443d1.PNG', preco: '600.000' },
+            { id: 18, marca: 'Audi', modelo: 'RS TT', cat: 'Supercar', motor: '2.5 TFSI', cv: '400cv', zero_cem: '3.7s', img: '1771202195_69926693f3bf1.jpg', preco: '300.000' },
+            { id: 19, marca: 'BMW', modelo: 'M4 Competition', cat: 'Supercar', motor: '3.0 Bi-Turbo', cv: '510cv', zero_cem: '3.9s', img: '1771202256_699266d0eb045.PNG', preco: '320.000' },
+            { id: 20, marca: 'BMW', modelo: 'M3 CS', cat: 'Supercar', motor: '3.0 Bi-Turbo', cv: '550cv', zero_cem: '3.8s', img: '1771202321_69926711b12ab.PNG', preco: '310.000' },
+            { id: 21, marca: 'Mercedes', modelo: 'Brabus 800', cat: 'Supercar', motor: 'V8 Biturbo', cv: '800cv', zero_cem: '3.4s', img: '1771202407_699267670add1.PNG', preco: '200.000' },
+            { id: 22, marca: 'Cadillac', modelo: 'Escalade 2026', cat: 'Luxo', motor: 'V8 6.2L', cv: '420cv', zero_cem: '5.7s', img: '1771202491_699267bb52541.PNG', preco: '1.000.000' },
+            { id: 23, marca: 'Cadillac', modelo: 'Escalade 2020', cat: 'Luxo', motor: 'V8 6.2L', cv: '420cv', zero_cem: '5.9s', img: '1771202533_699267e58c7ef.PNG', preco: '500.000' },
+            { id: 26, marca: 'Nissan', modelo: 'GT-R', cat: 'Supercar', motor: 'V6 Biturbo', cv: '600cv', zero_cem: '2.9s', img: '1771202628_6992684466d6c.PNG', preco: '600.000' },
+            { id: 27, marca: 'Jeep', modelo: 'Grand Cherokee SRT', cat: 'Supercar', motor: 'V8 Hemi', cv: '475cv', zero_cem: '4.5s', img: '1771202685_6992687d4d2a5.jpg', preco: '300.000' },
+            { id: 28, marca: 'Renault', modelo: 'Duster 2026', cat: 'SUV Performance', motor: '1.3 Turbo', cv: '170cv', zero_cem: '9.2s', img: '1771202743_699268b71abb3.JPG', preco: '100.000' },
+            { id: 29, marca: 'Rolls Royce', modelo: 'Ghost 2022', cat: 'Luxo', motor: 'V12 Biturbo', cv: '571cv', zero_cem: '4.8s', img: '1771202822_69926906863e2.jpg', preco: '50.000.000' },
+            { id: 30, marca: 'Frota Mini', modelo: 'Executive', cat: 'SUV Performance', motor: '1.5 Turbo', cv: '150cv', zero_cem: '8.5s', img: '1771202914_699269627ede5.PNG', preco: '15.000.000' },
+            { id: 31, marca: 'Lexus + Alpha', modelo: 'Romeu Sport', cat: 'Supercar', motor: 'V8', cv: '650cv', zero_cem: '4.2s', img: '1771202985_699269a90b752.PNG', preco: '800.000' },
+            { id: 32, marca: 'Frota Black', modelo: 'Motor Sport', cat: 'SUV Performance', motor: 'V6', cv: '400cv', zero_cem: '5.5s', img: '1771203049_699269e9aea00.PNG', preco: '5.000.000' },
+            { id: 33, marca: 'Dodge', modelo: 'Charger', cat: 'Supercar', motor: 'V8 Hemi', cv: '707cv', zero_cem: '3.5s', img: '1771203157_69926a55585fa.jpg', preco: '590.000' },
+            { id: 34, marca: 'All', modelo: 'Sport', cat: 'Supercar', motor: 'V8', cv: '800cv', zero_cem: '3.2s', img: '1771203217_69926a910dfda.PNG', preco: '99.999.999' },
+            { id: 37, marca: 'Nissan', modelo: 'GT-R Nismo', cat: 'Supercar', motor: 'V6 Biturbo', cv: '600cv', zero_cem: '2.8s', img: '1771203322_69926afa2c0d1.PNG', preco: '1.200.000' },
+            { id: 38, marca: 'Billionarie', modelo: 'Sport', cat: 'Supercar', motor: 'V12', cv: '1000cv', zero_cem: '2.5s', img: '1771203362_69926b22b0504.jpg', preco: '99.999.999' },
+            { id: 39, marca: 'Range Rover', modelo: '2024', cat: 'SUV Performance', motor: '3.0 MHEV', cv: '400cv', zero_cem: '5.8s', img: '1771203429_69926b656019e.PNG', preco: '700.000' },
+            { id: 40, marca: 'Mega SUV', modelo: 'SUV', cat: 'SUV Performance', motor: 'V8', cv: '500cv', zero_cem: '4.9s', img: '1771203491_69926ba3a2000.PNG', preco: '1.500.000' },
+            { id: 42, marca: 'Toyota', modelo: 'VXR', cat: 'Supercar', motor: 'V8', cv: '450cv', zero_cem: '6.2s', img: '1771203582_69926bfeb118b.jpg', preco: '2.500.000' },
+            { id: 43, marca: 'Toyota', modelo: 'LC300 Twin Turbo', cat: 'SUV Performance', motor: 'V6 Biturbo', cv: '409cv', zero_cem: '6.7s', img: '1771203628_69926c2c8aeae.PNG', preco: '2.000.000' },
+            { id: 44, marca: 'Mercedes', modelo: 'G63 AMG', cat: 'Supercar', motor: 'V8 Biturbo', cv: '585cv', zero_cem: '4.5s', img: '1771203672_69926c58ce4c2.PNG', preco: '1.300.000' },
+            { id: 45, marca: 'Brabus', modelo: '800', cat: 'Luxo', motor: 'V8 Biturbo', cv: '800cv', zero_cem: '3.8s', img: '1771203741_69926c9de8c42.PNG', preco: '5.000.000' },
+            { id: 46, marca: 'Volkswagen', modelo: 'GTI', cat: 'Supercar', motor: '2.0 Turbo', cv: '245cv', zero_cem: '6.2s', img: '1771203808_69926ce054ac6.PNG', preco: '250.000' },
+            { id: 47, marca: 'Porsche', modelo: '911 GT3 RS', cat: 'Supercar', motor: '4.0 Boxer', cv: '525cv', zero_cem: '3.2s', img: '1771203844_69926d04f17bb.PNG', preco: '4.000.000' },
+            { id: 48, marca: 'Suzuki', modelo: 'Jimny', cat: 'SUV Performance', motor: '1.5', cv: '102cv', zero_cem: '12.0s', img: '1771203906_69926d42a3537.jpg', preco: '150.000' },
+            { id: 49, marca: 'Lexus', modelo: 'LX 700h', cat: 'SUV Performance', motor: '3.5 Hybrid', cv: '409cv', zero_cem: '6.5s', img: '1771203959_69926d773d50a.PNG', preco: '700.000' },
+            { id: 50, marca: 'Mercedes', modelo: 'GLE 63 S', cat: 'Supercar', motor: 'V8 Biturbo', cv: '612cv', zero_cem: '3.8s', img: '1771204007_69926da7a5575.PNG', preco: '600.000' },
+            { id: 51, marca: 'Porsche + Tesla', modelo: 'Sport Tech', cat: 'Supercar', motor: 'Elétrico + Turbo', cv: '1000cv', zero_cem: '2.1s', img: '1771204085_69926df59b13b.PNG', preco: '3.500.000' },
+            { id: 52, marca: 'Ferrari', modelo: 'Purosangue', cat: 'Luxo', motor: 'V12', cv: '715cv', zero_cem: '3.3s', img: '1771204123_69926e1b1ebef.JPG', preco: '7.000.000' },
+            { id: 53, marca: 'Range Rover', modelo: 'SVR', cat: 'SUV Performance', motor: '5.0 Supercharged', cv: '575cv', zero_cem: '4.5s', img: '1771204174_69926e4eaefe0.PNG', preco: '3.000.000' },
+            { id: 54, marca: 'KIA', modelo: 'Stinger GT', cat: 'Supercar', motor: 'V6 3.3', cv: '370cv', zero_cem: '4.9s', img: '1771204223_69926e7f7cf90.jpg', preco: '200.000' },
+            { id: 55, marca: 'Exotic', modelo: 'Sport', cat: 'Supercar', motor: 'V8', cv: '800cv', zero_cem: '3.1s', img: '1771204269_69926ead7431d.PNG', preco: '9.000.000' },
+            { id: 56, marca: 'Land Rover', modelo: 'Defender', cat: 'SUV Performance', motor: '3.0 MHEV', cv: '400cv', zero_cem: '6.1s', img: '1771204309_69926ed57808d.jpg', preco: '800.000' },
+            { id: 57, marca: 'Jetour', modelo: 'T2 XWD', cat: 'SUV Performance', motor: '2.0 Turbo', cv: '254cv', zero_cem: '8.1s', img: '1771204373_69926f1568f7f.jpg', preco: '250.000' },
+            { id: 58, marca: 'Suzuki', modelo: 'S-Presso Offroad', cat: 'SUV Performance', motor: '1.0', cv: '68cv', zero_cem: '14.0s', img: '1771204416_69926f40be697.PNG', preco: '50.000' },
+            { id: 59, marca: 'Porsche', modelo: '911 Turbo S', cat: 'Supercar', motor: '3.8 Boxer', cv: '650cv', zero_cem: '2.7s', img: '1771204461_69926f6decf34.jpg', preco: '10.000.000' },
+            { id: 60, marca: 'Porsche', modelo: 'Turbo S + GT3 RS', cat: 'Supercar', motor: '4.0 Boxer', cv: '700cv', zero_cem: '2.6s', img: '1771204495_69926f8f1c7c8.PNG', preco: '20.000.000' },
+            { id: 61, marca: 'Chevrolet', modelo: 'Traverse', cat: 'SUV Performance', motor: '3.6 V6', cv: '310cv', zero_cem: '7.5s', img: '1771204533_69926fb570b62.PNG', preco: '150.000' },
+            { id: 62, marca: 'BMW', modelo: 'X6 M', cat: 'Luxo', motor: 'V8 Biturbo', cv: '600cv', zero_cem: '3.9s', img: '1771204584_69926fe86dfaa.PNG', preco: '5.000.000' },
+            { id: 64, marca: 'Toyota', modelo: 'Fortuner SR5', cat: 'Luxo', motor: '2.8 Diesel', cv: '204cv', zero_cem: '9.8s', img: '1771833230_699c078e94218.jpeg', preco: '40.000' },
+            { id: 66, marca: 'Toyota', modelo: 'Chefe Máquina', cat: 'Supercar', motor: 'V6', cv: '350cv', zero_cem: '5.2s', img: '1771833364_699c08149179d.webp', preco: '25.000' },
+            { id: 67, marca: 'Jaguar', modelo: 'XFR', cat: 'Supercar', motor: '5.0 Supercharged', cv: '510cv', zero_cem: '4.5s', img: '1771833710_699c096e61ad7.jpg', preco: '80.000' },
+            { id: 68, marca: 'Toyota', modelo: 'Prado 2026', cat: 'SUV Performance', motor: '2.8 Diesel', cv: '204cv', zero_cem: '10.2s', img: '1771834092_699c0aec4642f.jpg', preco: '35.000' },
+            { id: 69, marca: 'Toyota', modelo: 'Corolla GR', cat: 'Supercar', motor: '1.6 Turbo', cv: '300cv', zero_cem: '5.2s', img: '1771834497_699c0c816af7b.png', preco: '15.000' },
+            { id: 71, marca: 'KIA', modelo: 'K9', cat: 'Supercar', motor: 'V6 3.3', cv: '370cv', zero_cem: '5.1s', img: '1771834623_699c0cff8004b.jpg', preco: '70.000' },
+            { id: 72, marca: 'KIA', modelo: 'K7', cat: 'Supercar', motor: 'V6 3.0', cv: '290cv', zero_cem: '6.3s', img: '1771834888_699c0e08062b9.jpg', preco: '70.000' },
+            { id: 73, marca: 'Suzuki', modelo: 'Baleno', cat: 'SUV Performance', motor: '1.4 Turbo', cv: '140cv', zero_cem: '8.7s', img: '1771834962_699c0e52346a8.webp', preco: '10.000' },
+            { id: 74, marca: 'Suzuki', modelo: 'Swift Sport', cat: 'Supercar', motor: '1.4 Turbo', cv: '140cv', zero_cem: '8.1s', img: '1771835009_699c0e8172536.webp', preco: '10.000' },
+            { id: 75, marca: 'Suzuki', modelo: 'S-Cross', cat: 'Supercar', motor: '1.4 Turbo', cv: '140cv', zero_cem: '8.9s', img: '1771835076_699c0ec4db2f4.jpg', preco: '10.000' },
+            { id: 76, marca: 'KIA', modelo: 'Morning', cat: 'Supercar', motor: '1.0', cv: '76cv', zero_cem: '13.2s', img: '1771835161_699c0f196a911.webp', preco: '5.000' },
+            { id: 77, marca: 'Toyota', modelo: 'RAV4', cat: 'SUV Performance', motor: '2.5 Hybrid', cv: '219cv', zero_cem: '8.0s', img: '1771835518_699c107ee8ebc.jpg', preco: '25.000' },
+            { id: 79, marca: 'Range Rover', modelo: 'Autobiography', cat: 'Supercar', motor: '5.0 Supercharged', cv: '565cv', zero_cem: '5.2s', img: '1771835786_699c118a30d56.jpg', preco: '90.000' },
+            { id: 81, marca: 'GMC', modelo: 'Denali', cat: 'Supercar', motor: '6.2 V8', cv: '420cv', zero_cem: '6.5s', img: '1772181699_69a158c360490.jpg', preco: '549.805' }
+        ];
+
+        let carroSelecionado = null;
+        const modal = document.getElementById('modalBooking');
+
+        // ===== RENDERIZAR CARROS =====
+        function renderizarCarros(filtro = 'todos') {
+            const grid = document.getElementById('carGrid');
+            grid.innerHTML = '';
+
+            const carrosFiltrados = filtro === 'todos' 
+                ? frota 
+                : frota.filter(c => c.cat === filtro);
+
+            if (carrosFiltrados.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 80px;">
+                        <i class="fas fa-car" style="font-size: 4rem; color: #333; margin-bottom: 20px;"></i>
+                        <h3 style="color: #666;">Nenhum veículo encontrado nesta categoria</h3>
+                    </div>
+                `;
+                return;
+            }
+
+            carrosFiltrados.forEach(carro => {
+                const card = document.createElement('div');
+                card.className = 'car-card';
+                card.setAttribute('data-categoria', carro.cat);
+                card.setAttribute('data-aos', 'fade-up');
+                card.innerHTML = `
+                    <div class="car-image-box">
+                        <div class="price-tag">Kz ${carro.preco} / dia</div>
+                        <div class="car-image" style="background-image: url('uploads/${carro.img}')"></div>
+                        <div class="car-overlay">
+                            <span>Clique para detalhes</span>
+                        </div>
+                    </div>
+                    <div class="car-details">
+                        <span class="car-category">${carro.cat}</span>
+                        <h3 class="car-name">${carro.marca} ${carro.modelo}</h3>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-bolt"></i> ${carro.cv}</div>
+                            <div class="spec-item"><i class="fas fa-gauge-high"></i> ${carro.zero_cem}</div>
+                            <div class="spec-item"><i class="fas fa-cogs"></i> ${carro.motor}</div>
+                            <div class="spec-item"><i class="fas fa-shield-halved"></i> Blindado</div>
+                        </div>
+                        <button class="btn-book" onclick="abrirModal(${carro.id})">
+                            <i class="fas fa-calendar-check"></i> Agendar Test Drive
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Atualizar contador
+            document.getElementById('totalCarros').innerText = carrosFiltrados.length;
+        }
+
+        // ===== FILTRAR CARROS =====
+        function filtrarCarros(categoria, botao) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            botao.classList.add('active');
+            renderizarCarros(categoria);
+        }
+
+        // ===== ABRIR MODAL =====
+        function abrirModal(id) {
+            carroSelecionado = frota.find(c => c.id === id);
+            
+            document.getElementById('modalTitle').innerText = `${carroSelecionado.marca} ${carroSelecionado.modelo}`;
+            document.getElementById('modalCategory').innerText = carroSelecionado.cat;
+            document.getElementById('modalPrice').innerHTML = `<i class="fas fa-tag"></i> Kz ${carroSelecionado.preco} / dia`;
+            document.getElementById('modalHeroImg').style.backgroundImage = `url('uploads/${carroSelecionado.img}')`;
+            
+            // Data mínima = hoje
+            const hoje = new Date().toISOString().split('T')[0];
+            document.getElementById('reserveDate').min = hoje;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // ===== FECHAR MODAL =====
+        function fecharModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('userName').value = '';
+            document.getElementById('userPhone').value = '';
+            document.getElementById('reserveDate').value = '';
+        }
+
+        // ===== ENVIAR PARA WHATSAPP =====
+        function enviarWhatsApp() {
+            const nome = document.getElementById('userName').value;
+            const telefone = document.getElementById('userPhone').value;
+            const data = document.getElementById('reserveDate').value;
+            
+            if(!nome || !telefone || !data) {
+                mostrarToast('Por favor, preencha todos os campos', 'error');
+                return;
+            }
+            
+            // Validar telefone
+            if (!/^[9][0-9]{8}$/.test(telefone)) {
+                mostrarToast('Telefone inválido! Formato: 9XXXXXXXX', 'error');
+                return;
+            }
+
+            const dataFormatada = new Date(data).toLocaleDateString('pt-PT');
+            const mensagem = `Olá Diogo Drive Angola! 👋%0A%0A` +
+                `Meu nome é *${nome}*.%0A` +
+                `Telefone: ${telefone}%0A%0A` +
+                `Gostaria de agendar um Test Drive Premium:%0A%0A` +
+                `🚗 Veículo: *${carroSelecionado.marca} ${carroSelecionado.modelo}*%0A` +
+                `📅 Data pretendida: *${dataFormatada}*%0A%0A` +
+                `Aguardo confirmação da disponibilidade.`;
+
+            const numero = "244958480438";
+            
+            mostrarToast('Redirecionando para WhatsApp...', 'success');
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+                fecharModal();
+            }, 1000);
+        }
+
+        // ===== TOAST NOTIFICATION =====
+        function mostrarToast(mensagem, tipo = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.innerText = mensagem;
+            toast.style.backgroundColor = tipo === 'success' ? '#25D366' : '#e63946';
+            toast.style.display = 'flex';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MÁSCARA DE TELEFONE =====
+        document.getElementById('userPhone')?.addEventListener('input', function(e) {
+            let valor = e.target.value.replace(/\D/g, '');
+            if (valor.length > 9) valor = valor.slice(0, 9);
+            e.target.value = valor;
+        });
+
+        // ===== FECHAR MODAL COM ESC =====
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                fecharModal();
+            }
+        });
+
+        // ===== FECHAR MODAL CLICANDO FORA =====
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                fecharModal();
+            }
+        });
+
+        // ===== SCROLL SUAVE PARA ÂNCORAS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== INICIALIZAR =====
+        renderizarCarros('todos');
+    </script>
+</body>
+</html>
